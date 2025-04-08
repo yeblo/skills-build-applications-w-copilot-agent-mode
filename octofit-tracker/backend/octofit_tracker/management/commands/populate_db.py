@@ -1,13 +1,13 @@
 from django.core.management.base import BaseCommand
 from octofit_backend.models import User, Team, Activity, Leaderboard, Workout
-from bson import ObjectId
 from datetime import timedelta
+from bson import ObjectId
 
 class Command(BaseCommand):
     help = 'Populate the database with test data for users, teams, activities, leaderboard, and workouts'
 
     def handle(self, *args, **kwargs):
-        # Clear existing data
+        # Drop existing data
         User.objects.all().delete()
         Team.objects.all().delete()
         Activity.objects.all().delete()
