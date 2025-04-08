@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "djongo",
     "corsheaders",
     "octofit_backend",
 ]
@@ -79,13 +78,11 @@ WSGI_APPLICATION = "octofit_backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# Updated database settings for MongoDB
+# Removed djongo database engine
 DATABASES = {
     "default": {
-        "ENGINE": "djongo",
-        "NAME": "octofit_db",
-        "HOST": "localhost",
-        "PORT": 27017,
+        "ENGINE": "django.db.backends.sqlite3",  # Reverted to SQLite
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
